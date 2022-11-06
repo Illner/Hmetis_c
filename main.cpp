@@ -1,4 +1,5 @@
 #include <vector>
+#include <cstddef>
 #include <iostream>
 
 extern "C" void HMETIS_PartRecursive(int, int, int*, int*, int*, int*, int, int, int*, int*, int*);

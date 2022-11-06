@@ -4,6 +4,7 @@ project(Hmetis)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Hmetis main.cpp)
+set_target_properties(Hmetis PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
 
 # macOS
 IF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")

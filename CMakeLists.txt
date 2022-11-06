@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 project(Hmetis)
 
-#set (CMAKE_C_FLAGS "-m32")
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Hmetis main.cpp)

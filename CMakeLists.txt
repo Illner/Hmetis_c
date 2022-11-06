@@ -5,7 +5,7 @@ project(Hmetis)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Hmetis main.cpp)
-# set_target_properties(Hmetis PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+set_target_properties(Hmetis PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
 
 # macOS
 IF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
@@ -22,9 +22,7 @@ IF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
 # Windows
 ELSEIF ((${CMAKE_SYSTEM_NAME} STREQUAL "Windows") OR (CMAKE_SYSTEM_NAME STREQUAL "CYGWIN"))
     message("Operating system: Windows")
-    add_library(libHmetisWindows SHARED "${CMAKE_SOURCE_DIR}/Windows/libhmetis.lib")
-    set_target_properties(libHmetisWindows PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
-    #target_link_libraries(Hmetis "${CMAKE_SOURCE_DIR}/Windows/libhmetis.lib")
+    target_link_libraries(Hmetis "${CMAKE_SOURCE_DIR}/Windows/libhmetis.lib")
 
 # Linux
 ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")

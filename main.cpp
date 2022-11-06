@@ -32,8 +32,8 @@ int main(int argc, char *argv[])
     std::cout << "cut: " << cut << std::endl;
 
     std::cout << "partvec: ";
-    for (int i = 0; i < partvec.size(); ++i)
-        std::cout << partvec[i] << " ";
+    for (int i : partvec)
+        std::cout << i << " ";
     std::cout << std::endl;
 
     return 0;

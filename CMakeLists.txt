@@ -11,7 +11,7 @@ IF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
     # Apple Silicon
     IF (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "arm64")
         message("Operating system: macOS (Apple Silicon)")
-        target_link_libraries(Hmetis "${CMAKE_SOURCE_DIR}/macOS/libhmetis.a")
+        message(FATAL_ERROR "hMETIS is not supported!")
     # Intel
     ELSE ()
         message("Operating system: macOS (Intel)")

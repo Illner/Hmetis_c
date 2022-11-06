@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 project(Hmetis)
 
-set (CMAKE_C_FLAGS "-m32")
+#set (CMAKE_C_FLAGS "-m32")
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Hmetis main.cpp)
@@ -22,7 +22,9 @@ IF (${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
 # Windows
 ELSEIF ((${CMAKE_SYSTEM_NAME} STREQUAL "Windows") OR (CMAKE_SYSTEM_NAME STREQUAL "CYGWIN"))
     message("Operating system: Windows")
-    target_link_libraries(Hmetis "${CMAKE_SOURCE_DIR}/Windows/libhmetis.lib")
+    add_library(libHmetisWindows SHARED "${CMAKE_SOURCE_DIR}/Windows/libhmetis.lib")
+    set_target_properties(libHmetisWindows PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+    #target_link_libraries(Hmetis "${CMAKE_SOURCE_DIR}/Windows/libhmetis.lib")
 
 # Linux
 ELSEIF (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
